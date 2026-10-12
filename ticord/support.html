@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Suporte · Grupo Ticord</title><meta name="description" content="Suporte com IA do Grupo Ticord."><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="favicon.svg"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="support.css"></head>
+<body class="sp" data-page="support"><main>
+<section id="land">
+ <div class="lgo"><i></i><i></i><img src="logo.png" alt="Ticord"></div>
+ <h1 class="rot" id="rot"></h1>
+ <p class="sb">Assistente de suporte do Grupo Ticord</p>
+ <form class="pillf" id="lf"><input id="li" maxlength="2000" placeholder="Faça uma pergunta ao assistente de suporte da Ticord" autocomplete="off"><button class="ar" aria-label="Enviar"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></form>
+ <div class="chips" id="chips"></div>
+ <div class="acts" id="acts"></div>
+</section>
+<section id="chat">
+ <div class="ch"><b><img src="logo.png" alt="">Suporte com IA</b>
+  <button class="ib" id="nw" title="Nova conversa"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Nova conversa</span></button>
+  <button class="ib" id="gs" title="Configurações"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Configurações</span></button>
+  <button class="ib" id="lo" title="Sair"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg><span>Sair</span></button></div>
+ <div id="msgs"></div>
+ <form class="pillf" id="cf" style="width:100%;margin-top:10px"><input id="ci" maxlength="2000" placeholder="Digite sua mensagem..." autocomplete="off"><button class="ar" aria-label="Enviar"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></form>
+</section>
+</main>
+
+<div class="ov" id="ma"><div class="md"><button class="x" data-x>×</button><h3>Acesse sua conta</h3>
+ <div class="tabs"><button id="tl" class="on" type="button">Entrar</button><button id="tr" type="button">Criar conta</button></div>
+ <form id="af" autocomplete="on">
+  <div id="rf" style="display:none;gap:13px"><label>Nome<input id="an" maxlength="80" placeholder="Seu nome completo"></label><label>Telefone<input id="ap" type="tel" placeholder="(00) 00000-0000"></label></div>
+  <label>Email<input id="ae" type="email" required placeholder="voce@email.com"></label>
+  <label>Senha<input id="aw" type="password" required minlength="8" placeholder="Mínimo 8 caracteres"></label>
+  <div class="cap"><div id="cimg"></div><button type="button" id="cr" title="Novo código">↻</button></div>
+  <label>Digite o código da imagem<input id="ac" required maxlength="5" autocomplete="off" placeholder="Código"></label>
+  <div class="msg" id="am"></div><button class="cta" id="ab">Entrar</button></form></div></div>
+
+<div class="ov" id="ms"><div class="md"><button class="x" data-x>×</button><h3>Configurações</h3>
+ <div id="who" style="color:var(--mut);font-size:14px"></div>
+ <h4>Tema</h4><div class="seg" id="th"><button data-v="auto">Automático</button><button data-v="light">Claro</button><button data-v="dark">Escuro</button></div>
+ <h4>Cor de destaque</h4><div class="sw" id="sw"></div>
+ <h4>Mudar senha</h4><form id="pf"><label>Senha atual<input id="pc" type="password" required autocomplete="current-password"></label><label>Nova senha<input id="pn" type="password" required minlength="8" autocomplete="new-password"></label><div class="msg" id="pm"></div><button class="cta">Salvar nova senha</button></form>
+ <div class="sec2"><h4>Apagar conta</h4><p style="color:var(--mut);font-size:14px;line-height:1.5;margin-bottom:12px">Esta ação é definitiva e apaga também o seu histórico de conversas.</p>
+ <form id="df"><label>Confirme com sua senha<input id="dp" type="password" required autocomplete="current-password"></label><div class="msg" id="dm"></div><button class="cta danger">Apagar minha conta</button></form></div></div></div>
+<script src="app.js"></script><script src="support.js"></script></body></html>

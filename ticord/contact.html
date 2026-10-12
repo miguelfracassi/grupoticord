@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Contato · Grupo Ticord</title><meta name="description" content="Grupo Ticord: queremos fazer experiências para facilitar as vidas no futuro."><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="favicon.svg"><link rel="stylesheet" href="style.css"></head><body data-page="contact">
+<main><section class="hero" style="padding-bottom:40px"><div class="w"><h1 class="split"><b>Vamos conversar.</b>Conte sua ideia.</h1><p class="sub" data-r>Preencha o formulário e nossa equipe responde o quanto antes. Email e telefone são sempre obrigatórios.</p></div></section>
+<section class="sec" style="padding-top:20px"><div class="w"><div class="ap" style="align-items:start"><form class="form" id="cform" data-r="l" style="margin:0;max-width:none"><label>Nome<input id="n" required placeholder="Seu nome"></label><label>Email<input id="e" type="email" required placeholder="voce@email.com"></label><label>Telefone<input id="t" type="tel" required placeholder="(00) 00000-0000" pattern="[0-9()+\-\s]{8,}"></label><label>Setor<select id="s"><option value="Comercial">Comercial</option><option value="Helper">Helper (suporte)</option></select></label><label>Mensagem<textarea id="m" required placeholder="Como podemos ajudar?"></textarea></label><button class="cta" type="submit">Enviar mensagem</button><div class="msg" id="fm"></div></form>
+<div><div class="card" data-r="rt" style="margin-bottom:16px"><div class="ic"><svg><use href="#i-bolt"/></svg></div><h3>Comercial</h3><p>Orçamentos, parcerias e projetos.<br><a href="mailto:comercialticord@aol.com" style="color:var(--b);font-weight:700">comercialticord@aol.com</a></p></div>
+<div class="card" data-r="rt" style="margin-bottom:16px"><div class="ic"><svg><use href="#i-heart"/></svg></div><h3>Helper</h3><p>Suporte e dúvidas sobre os nossos projetos.<br><a href="mailto:helpticord@aol.com" style="color:var(--b);font-weight:700">helpticord@aol.com</a></p></div>
+<details data-r="rt"><summary>Quanto tempo leva a resposta?</summary><p>Nossa equipe responde o mais rápido possível, em ordem de chegada.</p></details>
+<details data-r="rt"><summary>Posso falar sobre um projeto novo?</summary><p>Pode! Escolha o setor Comercial e conte sua ideia na mensagem.</p></details></div></div></div></section></main>
+<script src="app.js"></script>
+<script>
+var $=function(i){return document.getElementById(i)};
+$("cform").onsubmit=function(ev){ev.preventDefault();var fm=$("fm"),d={name:$("n").value.trim(),email:$("e").value.trim(),phone:$("t").value.trim(),sector:$("s").value,message:$("m").value.trim()};fm.className="msg";
+if(!d.email||!d.phone){fm.className="msg e";fm.textContent="Email e telefone são obrigatórios.";return}
+fm.textContent="Enviando...";
+fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;fm.className="msg k";fm.textContent="Mensagem enviada! Em breve entraremos em contato.";$("cform").reset()}).catch(function(){fm.className="msg e";fm.textContent="Não foi possível enviar agora. Escreva para "+(d.sector==="Helper"?"helpticord@aol.com":"comercialticord@aol.com")+"."})};
+</script></body></html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Painel · Grupo Ticord</title><meta name="description" content="Grupo Ticord: queremos fazer experiências para facilitar as vidas no futuro."><meta name="robots" content="noindex,nofollow"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="favicon.svg"><link rel="stylesheet" href="style.css"></head><body data-page="inbox">
+<main><section class="hero" style="padding-bottom:30px"><div class="w"><h1 class="split"><b>Painel de envios</b>Área restrita.</h1></div></section>
+<section class="sec" style="padding-top:30px"><div class="w"><form class="form" id="g"><label>Senha<input type="password" id="pw" required placeholder="Digite a senha" autocomplete="off"></label><div class="msg e" id="ge"></div><button class="cta" type="submit">Entrar</button></form><div id="l" style="display:none;max-width:760px;margin:0 auto"><div class="msg" id="c" style="margin-bottom:14px"></div><div id="it"></div></div></div></section></main>
+<script src="app.js"></script>
+<script>
+var $=function(i){return document.getElementById(i)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+$("g").onsubmit=function(ev){ev.preventDefault();$("ge").textContent="";
+fetch("/api/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({password:$("pw").value})}).then(function(r){if(r.status===401)throw 1;if(!r.ok)throw 2;return r.json()}).then(function(d){$("g").style.display="none";$("l").style.display="block";$("c").textContent=d.items.length+" envio(s)";
+$("it").innerHTML=d.items.map(function(x){return '<div class="it"><b>'+esc(x.name)+'</b> · '+esc(x.sector)+'<br>'+esc(x.email)+' · '+esc(x.phone)+'<br>'+esc(x.message)+'<br><small>'+esc(new Date(x.created_at).toLocaleString("pt-BR"))+'</small></div>'}).join("")}).catch(function(e){$("ge").textContent=e===1?"Senha incorreta.":"Erro ao carregar os envios."})};
+</script></body></html>
